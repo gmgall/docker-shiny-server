@@ -13,11 +13,21 @@ RUN /bin/echo -e '\n## Fiocruz CRAN repository\ndeb http://cran.fiocruz.br/bin/l
 RUN apt-get update && apt-get install -y \
     r-base \
     wget \
-    gdebi-core
+    gdebi-core \
+    subversion \
+    libgdal-dev \
+    libproj-dev \
+    language-pack-pt-base
 
-# Install shiny and rmarkdown
+# Install R packages
 RUN R -e "install.packages('shiny', repos='http://cran.rstudio.com/')" && \
-    R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')"
+    R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('rjson', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('maps', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('raster', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('dismo', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('shinythemes', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('rgdal', repos='http://cran.rstudio.com/')"
 
 # Download and install Shiny Server
 WORKDIR /tmp/
@@ -26,6 +36,8 @@ RUN wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.3.0.403
     rm shiny-server-1.3.0.403-amd64.deb
 
 EXPOSE 3838
+
+ENV LANG pt_BR.UTF-8
 
 # shiny user is created by the Shiny Server package installed above
 USER shiny
