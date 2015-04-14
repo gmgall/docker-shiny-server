@@ -56,3 +56,6 @@ The owner of the file will be the ``shiny`` user (UID 999).
   - dismo
   - shinythemes
   - rgdal
+  - devtools
+  - rgbif
+* Installs the leaflet package from their [git repository](https://github.com/rstudio/leaflet)

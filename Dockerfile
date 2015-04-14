@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y \
     subversion \
     libgdal-dev \
     libproj-dev \
-    language-pack-pt-base
+    language-pack-pt-base \
+    libcurl4-gnutls-dev
 
 # Install R packages
 RUN R -e "install.packages('shiny', repos='http://cran.rstudio.com/')" && \
@@ -27,7 +28,10 @@ RUN R -e "install.packages('shiny', repos='http://cran.rstudio.com/')" && \
     R -e "install.packages('raster', repos='http://cran.rstudio.com/')" && \
     R -e "install.packages('dismo', repos='http://cran.rstudio.com/')" && \
     R -e "install.packages('shinythemes', repos='http://cran.rstudio.com/')" && \
-    R -e "install.packages('rgdal', repos='http://cran.rstudio.com/')"
+    R -e "install.packages('rgdal', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('devtools', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('rgbif', repos='http://cran.rstudio.com/')" && \
+    R -e "options(repos='http://cran.rstudio.com/'); devtools::install_github('rstudio/leaflet')"
 
 # Download and install Shiny Server
 WORKDIR /tmp/
