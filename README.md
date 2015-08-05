@@ -58,4 +58,9 @@ The owner of the file will be the ``shiny`` user (UID 999).
   - rgdal
   - devtools
   - rgbif
+  - shinydashboard
+  - randomForest
+  - kernlab
+  - rJava
 * Installs the leaflet package from their [git repository](https://github.com/rstudio/leaflet)
+* Installs Oracle Java 8 from the [Webupd8 repository](http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html)

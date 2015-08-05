@@ -45,6 +45,9 @@ RUN R -e "install.packages('shiny', repos='http://cran.rstudio.com/')" && \
     R -e "install.packages('rgdal', repos='http://cran.rstudio.com/')" && \
     R -e "install.packages('devtools', repos='http://cran.rstudio.com/')" && \
     R -e "install.packages('rgbif', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('shinydashboard', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('randomForest', repos='http://cran.rstudio.com/')" && \
+    R -e "install.packages('kernlab', repos='http://cran.rstudio.com/')" && \
     R -e "install.packages('rJava', repos='http://cran.rstudio.com/')" && \
     R -e "options(repos='http://cran.rstudio.com/'); devtools::install_github('rstudio/leaflet')"
 
