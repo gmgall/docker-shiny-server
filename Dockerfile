@@ -29,7 +29,8 @@ RUN apt-get update && apt-get install -y \
     libproj-dev \
     language-pack-pt-base \
     libcurl4-gnutls-dev \
-    oracle-java8-installer
+    oracle-java8-installer \
+    libv8-dev
 
 # XXX Why javareconf needs to be used 2 times?
 RUN R CMD javareconf
