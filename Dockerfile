@@ -65,6 +65,18 @@ EXPOSE 3838
 ENV LANG pt_BR.UTF-8
 
 # shiny user is created by the Shiny Server package installed above
-USER shiny
 
-CMD ["shiny-server"]
+# Default shiny UID and GID
+ENV SHINYUID 999
+ENV SHINYGID 999
+
+# Change the UID/GID of shiny user/group, ownership of files and start
+# shiny-server
+CMD bash -lc '\
+    groupmod -g $SHINYGID shiny && \
+    usermod -u $SHINYUID shiny && \
+    chown -R $SHINYUID:$SHINYGID /home/shiny && \
+    chown -R $SHINYUID:$SHINYGID /var/log/shiny-server && \
+    chown -R $SHINYUID:$SHINYGID /srv/shiny-server && \
+    shiny-server \
+'
