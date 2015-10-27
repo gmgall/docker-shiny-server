@@ -4,8 +4,7 @@ MAINTAINER Guilherme Gall <gmgall@gmail.com>
 
 # Fetching the key that signs the CRAN packages
 # Reference: http://cran.rstudio.com/bin/linux/ubuntu/README.html
-RUN gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E084DAB9 && \
-    gpg -a --export E084DAB9 | apt-key add -
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 
 # Fetching the key that signs the Webupd8 Oracle Java packages
 # Reference: http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
